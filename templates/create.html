@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block header %}
+<div class="text-white sticky-top w-100 p-1  mb-3 bg-dark">
+  <figure class="text-center">
+    <blockquote class="blockquote mb-3">
+      <p>
+        Muscle-Health-blog</p>
+    </blockquote>
+    <figcaption class="blockquote-footer mb-3">
+        Create New
+    </figcaption>
+  </figure>
+  </div>
+{% endblock %}
+
+{% block sidebar %}
+
+<form action="" method="POST" class="container text-center text-white bg-dark">{% csrf_token %}
+    <div class="m-2 p-2 text-center bg-secondary">
+        <label for="name">Enter new eat </label><br>
+        >> {{ form.eat }}
+      </div>
+    <div class="m-2 p-2 text-center ">
+        <label for="name">Enter new kcal </label><br>
+        >> {{ form.kcol }}
+      </div>
+    <div class="m-2 p-2 text-center bg-secondary">
+        <label for="name">Select new daycolor </label><br>
+        >> {{ form.daycolor }}
+      </div>
+    <div class="m-2 p-2 text-center ">
+        <label for="name">Enter new date </label><br>
+        >> {{ form.date }}
+      </div>
+    <div class="m-2 p-2 text-center bg-secondary">
+        <label for="name">Enter new target calorie <br>
+            <p class="text-dark">*If you do not change your target calorie, you do not need to change it from 0.</p>
+            <p class="text-dark">*If you want to change the target calorie, please enter the target calorie and change it.</p>
+        </label><br>
+        >> {{ form.goleKcol }}
+      </div>
+
+    <!--{{from}} はモデルで指定しているデータをfromの形で表示できる-->
+    <input type="submit" value="CREATE" class="btn  btn-outline-success btn-lg text-success m-2 p-2">
+</form>
+
+{% endblock%}
+
+{% block content %} 
+
+{% endblock %}
+
+
+{% block footer %}
+	<div class="row ">
+		<div class="col-12">
+            <p class="p-1">	ロニー・コールマン ~
+                True training starts when you want to quit~</p>
+        </div>
+	</div>
+{% endblock %}

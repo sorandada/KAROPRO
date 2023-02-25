@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="text-white sticky-top w-100 p-2 my-3">
+  <figure class="text-center">
+    <blockquote class="blockquote mb-3">
+      <p>
+        Muscle-Health-blog</p>
+    </blockquote>
+    <figcaption class="blockquote-footer mb-3">
+      Muscle and health  <cite title="Source Title">don't betray</cite>
+    </figcaption>
+    <figcaption class="blockquote-footer ">
+      {{dt_now}}
+    </figcaption>
+  </figure>
+  </div>
+{% endblock %}
+
+
+{% block sidebar %}
+<div class="container p-2 text-white">
+  <p class="container text-end fst-normal fs-3">The number of data : {{golekcolcount}}</p>
+  <div class="container m-2">
+    <a href="{% url 'create'%}" class="btn btn-outline-success mb-2" tabindex="-1" role="button" aria-disabled="true">NEW_CREATE</a>
+    <a href="{% url 'fulldelete' %}" class="btn btn-outline-danger mb-2" tabindex="-1" role="button" aria-disabled="true">FULLDELETE</a>
+    
+  </div>
+  <div class="overflow-auto p-3" style="width:auto; height:400px;">
+  {% for item in object_list %}
+  
+<div class='alert alert-{{item.daycolor}} ' role="alert">
+    <p>{{item.eat}}　期日：{{item.date | date:"o/n/j P"}}</p>
+    <a href="{% url 'update' item.pk %}" class="btn btn-dark " tabindex="-1" role="button" aria-disabled="true">UPDATE</a>
+    <a href="{% url 'delete' item.pk %}" class="btn btn-secondary " tabindex="-1" role="button" aria-disabled="true">DELETE</a>
+    <a href="{% url 'detail' item.pk %}" class="btn btn-light " tabindex="-1" role="button" aria-disabled="true">DETAIL</a>
+  </div>
+  
+{% endfor %}
+</div>
+</div>
+
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="p-3 mt-10 text-white">
+<!--
+<h2>{{golekcolmax}}</h2>
+<h2>{{golekcolmax.goleKcol__max}}</h2>
+<h2>{{golekcolmin}}</h2>
+<h2>{{golekcolmin.goleKcol__min}}</h2>
+-->
+<p class="fst-normal fs-3">Target calorie：{{gole}}kcal</p>
+<p class="fst-normal fs-3">Today's calorie intake：{{kcolsum.kcol__sum}}kcal</p><!--データベースのkcolの合計　>>>views.py-->
+<p class="fst-normal fs-3">Remaining target calorie：<br>
+  >>><span class="text-danger">{{lastkcal}}</span> kcal</p>
+
+<div class="w-100 p-3 ">
+  <canvas id="mychart-bar" width="400" height="200"></canvas>
+</div>
+
+<script>
+Chart.defaults.animation.duration = 1000;
+var ctx = document.getElementById('mychart-bar');
+var myChart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: ['KCAL'],
+    datasets: [{
+      label: 'NowKcar',
+      data: ["{{kcolsum.kcol__sum}}"],
+      backgroundColor: '#ced4da',
+    },{
+      label: 'GoleKcal',
+      data: ["{{gole}}"],
+      backgroundColor: '#6c757d',
+    }],
+  },
+});
+</script>
+</div>
+</div>
+
+{% endblock %}
+
+
+{% block footer %}
+<div class=" fixed-bottom text-white text-center  bg-secondary">
+	<div class="row ">
+		<div class="col-12">
+      <p class="p-1">	アーノルド・シュワルツェネッガー ~If your muscles say NO, I say YES! and answer.~</p>
+    </div>
+	</div>
+</div>
+{% endblock %}

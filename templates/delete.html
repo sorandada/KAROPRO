@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% load mathfilters %}
+
+{% block header %}
+<div class="text-white sticky-top w-100 p-1  mb-3 bg-dark">
+  <figure class="text-center">
+    <blockquote class="blockquote mb-3">
+      <p>
+        Muscle-Health-blog</p>
+    </blockquote>
+    <figcaption class="blockquote-footer mb-3">
+        Deleted information
+    </figcaption>
+  </figure>
+  </div>
+{% endblock %}
+
+
+{% block sidebar %}
+
+<div class="container bg-dark">
+    <ul class="list-group list-group-flush ">
+      <li class="list-group-item bg-secondary text-white text-center">Eat : {{object.eat}}</li>
+      <li class="list-group-item bg-dark text-white text-center">Kcal : {{object.kcol}}</li>
+      <li class="list-group-item bg-secondary text-white text-center">When : {{object.get_daycolor_display}}</li>
+      <li class="list-group-item bg-dark text-white text-center">
+        Registration time : {{object.date}}</li>
+    </ul>
+</div>
+
+<div class="container bg-dark mt-3">
+<form action="" method="POST" class="container text-center">{% csrf_token %}
+    <input type="submit" value="DELETE" class="btn  btn-outline-danger btn-lg text-danger">
+</form>
+</div>
+
+{% endblock%}
+
+
+{% block content %}
+{% load static%}  
+
+{% endblock %}
+
+
+{% block footer %}
+	<div class="row ">
+		<div class="col-12">
+            <p class="p-1">	ヘンリー・ロリンズ ~
+                I consider iron my best friend. Never piss me off, never run away. Friends may come, but someday they will leave. But £200 is always £200~</p>
+        </div>
+	</div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% load mathfilters %}
+
+{% block header %}
+<div class="text-white sticky-top w-100 p-1  mb-3 bg-dark">
+  <figure class="text-center">
+    <blockquote class="blockquote mb-3">
+      <p>
+        Muscle-Health-blog</p>
+    </blockquote>
+    <figcaption class="blockquote-footer mb-3">
+      Detailed information
+    </figcaption>
+  </figure>
+  </div>
+{% endblock %}
+
+{% block sidebar %}
+
+<div class="container bg-dark">
+<ul class="list-group list-group-flush ">
+  <li class="list-group-item bg-secondary text-white text-center">Eat : {{object.eat}}</li>
+  <li class="list-group-item bg-dark text-white text-center">Kcal : {{object.kcol}}</li>
+  <li class="list-group-item bg-secondary text-white text-center">When : {{object.get_daycolor_display}}</li>
+  <li class="list-group-item bg-dark text-white text-center">
+    Registration time : {{object.date}}</li>
+</ul>
+</div>
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
+
+{% block footer %}
+<div class=" fixed-bottom text-white text-center  bg-secondary">
+	<div class="row ">
+		<div class="col-12">
+      <p class="p-1">	ドリアン・イエーツ ~
+        What would you do if a stranger just walked in the door, put a gun to your temple and said, "Do it two more times"? You're going crazy for death, aren't you? That's what it means to push.~</p>
+      
+    </div>
+	</div>
+</div>
+{% endblock %}
