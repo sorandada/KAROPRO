@@ -75,13 +75,6 @@ git clone https://github.com/KAROPRO/~
 python manage.py runserver
 ```
 
-# Note
-
-まだ公開できていない
-
-本来ならサーバー(AWSやお名前.comなど)をかりてデプロイしたいが、
-まだまだweb周りの知識不足なので自分で1から構築してみてデプロイする予定。
-
 # Author
 
 
