@@ -24,6 +24,8 @@ KAROPROとは目標カロリーを設定しそれを目指していくサイト�
 ![alt](list.gif)
 ![alt](list2.gif)
 
+![alt](KAROPRO_WEB.gif)
+
 # Requirement
 
 * Windows10 Home
