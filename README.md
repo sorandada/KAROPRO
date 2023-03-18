@@ -16,11 +16,12 @@
 # DEMO
 
 
-作成ウェブページ
+作成ウェブページ(スマホ表示)
 
 ![alt](list.gif)
 ![alt](list2.gif)
 
+作成ウェブページ(PC表示)
 ![alt](KAROPRO_WEB.gif)
 
 # Requirement
