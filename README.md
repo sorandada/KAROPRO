@@ -21,8 +21,6 @@
 ![alt](list.gif)
 ![alt](list2.gif)
 
-<<<<<<< HEAD
-=======
 作成ウェブページ(PC表示)
 >>>>>>> 8fa40c0fba4c17835093a7183016bb5ac84b0690
 ![alt](KAROPRO_WEB.gif)
