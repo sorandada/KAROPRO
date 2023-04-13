@@ -16,18 +16,18 @@
   </div>
 {% endblock %}
 
-{% block sidebar %}
 
+{% block sidebar %}
 <div class="container bg-dark">
 <ul class="list-group list-group-flush ">
   <li class="list-group-item bg-secondary text-white text-center">Eat : {{object.eat}}</li>
   <li class="list-group-item bg-dark text-white text-center">Kcal : {{object.kcol}}</li>
   <li class="list-group-item bg-secondary text-white text-center">When : {{object.get_daycolor_display}}</li>
-  <li class="list-group-item bg-dark text-white text-center">
-    Registration time : {{object.date}}</li>
+  <li class="list-group-item bg-dark text-white text-center">Registration time : {{object.date}}</li>
 </ul>
 </div>
 {% endblock %}
+
 
 {% block content %}
 {% endblock %}

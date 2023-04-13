@@ -1,7 +1,5 @@
 {% extends 'base.html' %}
 
-{% load mathfilters %}
-
 {% block header %}
 <div class="text-white sticky-top w-100 p-1  mb-3 bg-dark">
   <figure class="text-center">
@@ -18,14 +16,12 @@
 
 
 {% block sidebar %}
-
 <div class="container bg-dark">
     <ul class="list-group list-group-flush ">
       <li class="list-group-item bg-secondary text-white text-center">Eat : {{object.eat}}</li>
       <li class="list-group-item bg-dark text-white text-center">Kcal : {{object.kcol}}</li>
       <li class="list-group-item bg-secondary text-white text-center">When : {{object.get_daycolor_display}}</li>
-      <li class="list-group-item bg-dark text-white text-center">
-        Registration time : {{object.date}}</li>
+      <li class="list-group-item bg-dark text-white text-center">Registration time : {{object.date}}</li>
     </ul>
 </div>
 

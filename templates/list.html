@@ -17,47 +17,44 @@
   </div>
 {% endblock %}
 
-
+<!--リスト表示、操作-->
 {% block sidebar %}
 <div class="container p-2 text-white">
+  <!--データの数を表示、CREATEした数-->
   <p class="container text-end fst-normal fs-3">The number of data : {{golekcolcount}}</p>
+  <!--create:新規作成、 fulldelete:全削除　のボタン押すと、指定されたページに移動-->
   <div class="container m-2">
     <a href="{% url 'create'%}" class="btn btn-outline-success mb-2" tabindex="-1" role="button" aria-disabled="true">NEW_CREATE</a>
     <a href="{% url 'fulldelete' %}" class="btn btn-outline-danger mb-2" tabindex="-1" role="button" aria-disabled="true">FULLDELETE</a>
-    
   </div>
+
   <div class="overflow-auto p-3" style="width:auto; height:400px;">
   {% for item in object_list %}
-  
-<div class='alert alert-{{item.daycolor}} ' role="alert">
+  <!--リスト表示（update:更新、 delete:削除　detail:詳細）-->
+  <div class='alert alert-{{item.daycolor}} ' role="alert">
     <p>{{item.eat}}　期日：{{item.date | date:"o/n/j P"}}</p>
     <a href="{% url 'update' item.pk %}" class="btn btn-dark " tabindex="-1" role="button" aria-disabled="true">UPDATE</a>
     <a href="{% url 'delete' item.pk %}" class="btn btn-secondary " tabindex="-1" role="button" aria-disabled="true">DELETE</a>
     <a href="{% url 'detail' item.pk %}" class="btn btn-light " tabindex="-1" role="button" aria-disabled="true">DETAIL</a>
   </div>
-  
 {% endfor %}
+  </div>
 </div>
-</div>
-
-
 {% endblock %}
 
 
+<!--グラフ-->
 {% block content %}
-
 <div class="p-3 mt-10 text-white">
-<!--
-<h2>{{golekcolmax}}</h2>
-<h2>{{golekcolmax.goleKcol__max}}</h2>
-<h2>{{golekcolmin}}</h2>
-<h2>{{golekcolmin.goleKcol__min}}</h2>
--->
+<!--目標カロリー-->
 <p class="fst-normal fs-3">Target calorie：{{gole}}kcal</p>
-<p class="fst-normal fs-3">Today's calorie intake：{{kcolsum.kcol__sum}}kcal</p><!--データベースのkcolの合計　>>>views.py-->
+<!--摂取カロリーの合計-->
+<p class="fst-normal fs-3">Today's calorie intake：{{kcolsum.kcol__sum}}kcal</p>
+<!--目標カロリーと摂取カロリーの差-->
 <p class="fst-normal fs-3">Remaining target calorie：<br>
   >>><span class="text-danger">{{lastkcal}}</span> kcal</p>
 
+<!--グラフの表示（棒グラフ、現在の摂取カロリーと目標カロリー）-->
 <div class="w-100 p-3 ">
   <canvas id="mychart-bar" width="400" height="200"></canvas>
 </div>
@@ -83,7 +80,6 @@ var myChart = new Chart(ctx, {
 </script>
 </div>
 </div>
-
 {% endblock %}
 
 
